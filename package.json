@@ -1,0 +1,32 @@
+{
+  "name": "rhinoify",
+  "version": "0.1.0",
+  "description": "Browserify plugin to (attempt) to support the java Rhino / Nashorn engines",
+  "main": "index.js",
+  "dependencies": {
+    "browserify-transform-tools": "^1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peteward44/rhinoify.git"
+  },
+  "keywords": [
+    "browserify-plugin",
+    "browserify",
+    "plugin",
+    "rhino"
+  ],
+  "author": "Pete Ward <peteward44@gmail.com>",
+  "license": "MIT",
+  "files": [
+	"index.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/peteward44/rhinoify/issues"
+  },
+  "homepage": "https://github.com/peteward44/rhinoify#readme"
+}
