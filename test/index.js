@@ -34,4 +34,8 @@ describe( "rhinoify", function() {
 	it( "Replaces object properties when defined inside object expression", function( done ) {
 		assertTransform( "objectExpression.js", "objectExpression_Correct.js", done );
 	} );
+	
+	it( "Replaces global object with function to 'get' global this", function( done ) {
+		assertTransform( "global.js", "global_Correct.js", done );
+	} );
 } );

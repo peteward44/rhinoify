@@ -61,6 +61,18 @@ function process( node, transformOptions, done ) {
 		}
 	}
 	
+	// replace global keywork with equivalent method
+	// see: http://stackoverflow.com/questions/3277182/how-to-get-the-global-object-in-javascript
+	if ( node.type === 'MemberExpression' ) {
+		if ( typeof node.object === "object" && typeof node.object.name === "string" && typeof node.object.type === "string" && node.object.type === "Identifier" ) {
+			if ( node.object.name === "global" ) {
+				var code = node.source();
+				var newCode = code.replace( /global/g, "(Function('return this')())" );
+				node.update( newCode );
+			}
+		}
+	}
+	
 	done();
 }
 

@@ -23,7 +23,8 @@
   "author": "Pete Ward <peteward44@gmail.com>",
   "license": "MIT",
   "files": [
-	"index.js"
+	"index.js",
+	"README.md"
   ],
   "bugs": {
     "url": "https://github.com/peteward44/rhinoify/issues"
