@@ -1,7 +1,5 @@
 var transformTools = require( 'browserify-transform-tools' );
 
-var options = {};
-
 // Taken from Ecma-262, section 7.5.3
 // https://msdn.microsoft.com/en-us/library/mt227924(v=vs.85).aspx
 var illegalNames = [
@@ -45,7 +43,9 @@ function process( node, transformOptions, done ) {
 	if ( node.type === 'MemberExpression' ) {
 		if ( typeof node.property === "object" && typeof node.property.name === "string" && typeof node.property.type === "string" && node.property.type === "Identifier" ) {
 			if ( illegalNames.indexOf( node.property.name ) >= 0 ) {
-				node.update( node.object.name + "['" + node.property.name + "']" );
+				var code = node.source();
+				var newCode = code.replace( /\..*$/, "['" + node.property.name + "']" );
+				node.update( newCode );
 			}
 		}
 	}
@@ -64,5 +64,5 @@ function process( node, transformOptions, done ) {
 	done();
 }
 
-var rhinoify = transformTools.makeFalafelTransform( "rhinoify", options, process );
+var rhinoify = transformTools.makeFalafelTransform( "rhinoify", { jsFilesOnly: true }, process );
 module.exports = rhinoify;
