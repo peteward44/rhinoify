@@ -38,4 +38,16 @@ describe( "rhinoify", function() {
 	it( "Replaces global object with function to 'get' global this", function( done ) {
 		assertTransform( "global.js", "global_Correct.js", done );
 	} );
+	
+	it( "rhinoify.exec() method works", function( done ) {
+		var content = "global.value = 'string'";
+		rhinoify.exec( content, function( err, transformed ) {
+			if ( err ) {
+				done( err );
+			} else {
+				assert.equal( "(Function('return this')()).value = 'string'", transformed, "Correctly transformed" );
+				done();
+			}
+		} );
+	} );
 } );

@@ -108,4 +108,16 @@ function process( node, transformOptions, done ) {
 }
 
 var rhinoify = transformTools.makeFalafelTransform( "rhinoify", { jsFilesOnly: true }, process );
+
+rhinoify.exec = function( content, callback ) {
+	return transformTools.runTransform(
+		rhinoify,
+		"dummyfilename.js",
+		{
+			content: content
+		},
+		callback
+	);
+};
+
 module.exports = rhinoify;

@@ -8,3 +8,13 @@ This doesn't guarantee compatibility with Rhino, but might give you a better cha
 * It replaces the 'global' identifier with a function that returns Rhino's global object
 
 Note: The work done by this transform may be undone by uglifiers. Try to make it the last transform in the list.
+
+## Executing directly
+You don't have to use browserify if you don't want to, just use
+```
+var rhinoify = require( 'rhinoify' );
+var mycode = "var g = 3;";
+rhinoify.exec( mycode, function( err, transformedCode ) {
+	// transformedCode now contains your new code
+} );
+```
