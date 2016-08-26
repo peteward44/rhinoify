@@ -1,6 +1,6 @@
 {
   "name": "rhinoify",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Browserify plugin to (attempt) to support the java Rhino / Nashorn engines",
   "main": "index.js",
   "dependencies": {
