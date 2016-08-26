@@ -34,7 +34,11 @@ var illegalNames = [
 	"double",
 	"import",
 	"public",
-	"default" // not defined in 7.5.3 but causes problems
+	"default", // not defined in 7.5.3 but causes problems
+	"delete",
+	"function",
+	"catch",
+	"try"
 ];
 
 
