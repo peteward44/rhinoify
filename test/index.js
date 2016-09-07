@@ -39,6 +39,10 @@ describe( "rhinoify", function() {
 		assertTransform( "global.js", "global_Correct.js", done );
 	} );
 	
+	it( "Replaces parameter / variable names with safe versions", function( done ) {
+		assertTransform( "parameter.js", "parameter_Correct.js", done );
+	} );
+	
 	it( "rhinoify.exec() method works", function( done ) {
 		var content = "global.value = 'string'";
 		rhinoify.exec( content, function( err, transformed ) {

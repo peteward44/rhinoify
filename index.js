@@ -104,6 +104,15 @@ function process( node, transformOptions, done ) {
 		}
 	}
 	
+	// replace variable / parameter names with legal names
+	if ( node.type === 'Identifier' ) {
+		if ( illegalNames.indexOf( node.name ) >= 0 ) {
+			var code = node.source();
+			var newCode = code.replace( new RegExp( node.name, 'g' ), node.name + "_" );
+			node.update( newCode );
+		}
+	}
+	
 	done();
 }
 
