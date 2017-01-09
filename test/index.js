@@ -43,6 +43,10 @@ describe( "rhinoify", function() {
 		assertTransform( "parameter.js", "parameter_Correct.js", done );
 	} );
 	
+	it( "Replaces nested object reference correctly", function( done ) {
+		assertTransform( "nested.js", "nested_Correct.js", done );
+	} );
+	
 	it( "rhinoify.exec() method works", function( done ) {
 		var content = "global.value = 'string'";
 		rhinoify.exec( content, function( err, transformed ) {
