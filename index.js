@@ -4,7 +4,6 @@ var transformTools = require( 'browserify-transform-tools' );
 // https://msdn.microsoft.com/en-us/library/mt227924(v=vs.85).aspx
 var illegalNames = [
 	"abstract",
-	"arguments",
 	"case",
 	"continue",
 	"enum",
