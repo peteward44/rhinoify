@@ -1,4 +1,7 @@
 # rhinoify
+
+***This project is no longer maintained***
+
 Browserify transform to (attempt) to support the java Rhino / Nashorn engines
 
 This doesn't guarantee compatibility with Rhino, but might give you a better chance!
@@ -17,4 +20,16 @@ var mycode = "var g = 3;";
 rhinoify.exec( mycode, function( err, transformedCode ) {
 	// transformedCode now contains your new code
 } );
+```
+
+## Using with browserify
+
+```
+browserify main.js -t rhinoify -o bundle.js
+```
+
+or
+
+```
+browserify main.js -t rhinoify --standalone test -o bundle.js
 ```
